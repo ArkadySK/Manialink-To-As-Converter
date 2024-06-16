@@ -22,6 +22,10 @@ namespace ManialinkToActionscriptAutoUpdater
 
             string manialinkContent = File.ReadAllText(path);
             manialinkContent = manialinkContent.Replace("#", "\"\"\" + hashtag + \"\"\"");
+            manialinkContent = manialinkContent.Replace("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>", "");
+            manialinkContent = manialinkContent.Replace("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>", "");
+            manialinkContent = manialinkContent.Replace("<manialink version=\"3\">", "");
+            manialinkContent = manialinkContent.Replace("</manialink>", "");
 
             StringBuilder sb = new();
             sb.AppendLine("// Manialink code for " + manialinkName + ".xml");
